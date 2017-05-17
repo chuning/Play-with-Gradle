@@ -105,11 +105,10 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         if (spinner != null) {
             spinner.setVisibility(View.GONE);
         }
-        JokeTellingProvider jokeTellingProvider = new JokeTellingProvider();
-        String joke = jokeTellingProvider.getJoke();
+
         Intent intent = new Intent(context, JokeDisplayActivity.class);
         intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, joke);
+        intent.putExtra(Intent.EXTRA_TEXT, result);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
